@@ -193,7 +193,9 @@ def always_roll(n):
     """
     assert n >= 0 and n <= 10
     # BEGIN PROBLEM 6
-    "*** YOUR CODE HERE ***"
+    def alwaysRoll(score: int, opponentScore: int):
+        return n
+    return alwaysRoll
     # END PROBLEM 6
 
 
@@ -224,7 +226,13 @@ def is_always_roll(strategy, goal=GOAL):
     False
     """
     # BEGIN PROBLEM 7
-    "*** YOUR CODE HERE ***"
+    defaultDiceTimes, currentDiceTimes = strategy(0, 0), 0
+    for score in range(0, goal):
+        for opponentScore in range(0, goal):
+            currentDiceTimes = strategy(score, opponentScore)
+            if currentDiceTimes != defaultDiceTimes:
+                return False
+    return True    
     # END PROBLEM 7
 
 
@@ -240,9 +248,13 @@ def make_averaged(original_function, total_samples=1000):
     3.0
     """
     # BEGIN PROBLEM 8
-    "*** YOUR CODE HERE ***"
+    def makeAveraged(*args):
+        result = 0
+        for i in range(0, total_samples):
+            result += original_function(*args)
+        return result / total_samples
+    return makeAveraged
     # END PROBLEM 8
-
 
 def max_scoring_num_rolls(dice=six_sided, total_samples=1000):
     """Return the number of dice (1 to 10) that gives the highest average turn score
@@ -254,7 +266,15 @@ def max_scoring_num_rolls(dice=six_sided, total_samples=1000):
     1
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    numRoll, maxScore = 1, 0
+    for i in range(1, 11):
+        rollDiceAveraged = make_averaged(roll_dice, total_samples)
+        score = rollDiceAveraged(i, dice)
+        if score > maxScore:
+            numRoll, maxScore = i, score
+    return numRoll
+        
+    
     # END PROBLEM 9
 
 
