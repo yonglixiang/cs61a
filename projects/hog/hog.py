@@ -318,14 +318,22 @@ def boar_strategy(score, opponent_score, threshold=12, num_rolls=6):
     points, and returns NUM_ROLLS otherwise. Ignore score and Fuzzy Factors.
     """
     # BEGIN PROBLEM 10
-    return num_rolls  # Remove this line once implemented.
+    addScore = boar_brawl(score, opponent_score)
+    if addScore >= threshold:
+        return 0
+    else:
+        return num_rolls  
     # END PROBLEM 10
 
 
 def fuzzy_strategy(score, opponent_score, threshold=12, num_rolls=6):
     """This strategy returns 0 dice when your score would increase by at least threshold."""
     # BEGIN PROBLEM 11
-    return num_rolls  # Remove this line once implemented.
+    fuzzyAddScore = fuzzy_update(0, score, opponent_score) - score
+    if fuzzyAddScore >= threshold:
+        return 0
+    else:
+        return num_rolls # Remove this line once implemented.
     # END PROBLEM 11
 
 
@@ -335,6 +343,7 @@ def final_strategy(score, opponent_score):
     *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
+    
     return 6  # Remove this line once implemented.
     # END PROBLEM 12
 
