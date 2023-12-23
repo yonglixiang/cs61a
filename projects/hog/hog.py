@@ -325,7 +325,6 @@ def boar_strategy(score, opponent_score, threshold=12, num_rolls=6):
         return num_rolls  
     # END PROBLEM 10
 
-
 def fuzzy_strategy(score, opponent_score, threshold=12, num_rolls=6):
     """This strategy returns 0 dice when your score would increase by at least threshold."""
     # BEGIN PROBLEM 11
